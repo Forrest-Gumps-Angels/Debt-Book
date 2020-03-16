@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:Debt_Book"
         xmlns:local1="clr-namespace:Debt_Book.ViewModels"
         mc:Ignorable="d"
+        Background="{DynamicResource WindowBrush}"
         Title="Add new client" Height="200" Width="350"
         WindowStartupLocation="CenterOwner"
         FocusManager.FocusedElement="{Binding ElementName=nameBox}"
@@ -27,7 +28,7 @@
         
         <Label Margin="5,0" Grid.ColumnSpan="2" 
                HorizontalAlignment="Center" FontSize="30"
-               FontFamily="Calibri">Add deptor</Label>
+               FontFamily="Calibri">Add debtor</Label>
         <Label Grid.Row="1" Margin="5,0">Name</Label>
         <Label Grid.Row="2" Margin="5,0"  >Initial value</Label>
         <TextBox Grid.Column="1" Grid.Row="1" Name="nameBox" Text="{Binding Path=Name}"/>

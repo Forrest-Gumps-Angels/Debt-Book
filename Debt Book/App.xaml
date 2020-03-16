@@ -4,6 +4,23 @@
              xmlns:local="clr-namespace:Debt_Book"
              StartupUri="Views/MainWindow.xaml">
     <Application.Resources>
-         
-    </Application.Resources>
+         <Style TargetType="Button">
+			<Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="FontFamily" Value="Times New Roman"/>
+         </Style>
+
+        <Style TargetType="ListBox">
+			<Setter Property="Background" Value="#333333"/>
+            <Setter Property="BorderBrush" Value="Black"/>
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="FontStyle" Value="Italic"/>
+            <Setter Property="FontStretch" Value="SemiExpanded"/>
+            <Setter Property="Foreground" Value="White"/>
+        </Style>
+
+		<SolidColorBrush x:Key="WindowBrush" Color="#666666"/>
+
+	</Application.Resources>
+
 </Application>
