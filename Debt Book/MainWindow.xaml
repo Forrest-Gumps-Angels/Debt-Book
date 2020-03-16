@@ -27,8 +27,11 @@
 				<DataTemplate>
 					<WrapPanel>
                         <TextBlock Text="{Binding Path= Name}" Width="150">
+                            <Hyperlink Command="{Binding }"/>
                         </TextBlock>
-                        <TextBlock Text="{Binding Path=AccumulatedValue}" Width="auto"/>
+                        <TextBlock Text="{Binding Path=AccumulatedValue}" Width="auto">
+                            <Hyperlink Command="{Binding AddNewDebtHistoryWindow}"/>
+                        </TextBlock>
 					</WrapPanel>
 				</DataTemplate>
 			</ListBox.ItemTemplate>
