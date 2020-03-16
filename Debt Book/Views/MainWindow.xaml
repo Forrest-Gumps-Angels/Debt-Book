@@ -7,7 +7,7 @@
         xmlns:local1="clr-namespace:Debt_Book.ViewModels"
         mc:Ignorable="d"
         Background="{DynamicResource WindowBrush}"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="300" Width="400">
 	<Window.DataContext>
 		<local1:MainWindowViewModel/>
 	</Window.DataContext>
