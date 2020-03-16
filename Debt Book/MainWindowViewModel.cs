@@ -12,7 +12,7 @@ namespace Debt_Book
     {
         ObservableCollection<Client> ClientList = new ObservableCollection<Client>();
         Client _currentClient = null;
-        Client _currentDebtUnit = null;
+        DebtHistory.DebtUnit _currentDebtUnit = null;
         private int _currentIndex = 0;
 
         public MainWindowViewModel()
@@ -25,7 +25,7 @@ namespace Debt_Book
             set => SetProperty(ref _currentClient, value);
         }
 
-        public Client CurrentDebtUnit
+        public DebtHistory.DebtUnit CurrentDebtUnit
         {
             get => _currentDebtUnit;
             set => SetProperty(ref _currentDebtUnit, value);
