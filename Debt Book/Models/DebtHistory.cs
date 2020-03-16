@@ -3,18 +3,15 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Text;
+using Prism.Commands;
+using Prism.Mvvm;
 
 namespace Debt_Book
 {
-    public class DebtHistory : INotifyPropertyChanged
+    public class DebtHistory : BindableBase
     {
         List<DebtUnit> debts_ = new List<DebtUnit>();
 
-        public event PropertyChangedEventHandler PropertyChanged;
-        protected void notify([CallerMemberName]string propname = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propname));
-        }
 
         public List<DebtUnit> Debts
         {
@@ -51,7 +48,7 @@ namespace Debt_Book
             public double Debt
             {
                 get => debt_;
-                set { debt_ = value; notify(); }
+                set => SetProperty(ref debt_, value);
             }
         }
     }

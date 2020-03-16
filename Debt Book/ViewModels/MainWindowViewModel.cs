@@ -8,6 +8,7 @@ using System.Xml.Serialization;
 using Prism.Commands;
 using Debt_Book.ViewModels;
 using Microsoft.Win32;
+using System;
 
 namespace Debt_Book.ViewModels
 {
@@ -151,5 +152,19 @@ namespace Debt_Book.ViewModels
 
             }
         }
+
+        ICommand _AddNewDebtUnit;
+        public ICommand AddNewDebtUnit
+        {
+            get
+            {
+                return _AddNewDebtUnit ?? (_AddNewDebtUnit = new DelegateCommand(() =>
+                {
+                    CurrentClient.DebtHistory.Debts.Add(new DebtHistory.DebtUnit(0, DateTime.Now));
+                }));
+
+            }
+        }
+
     }
 }
