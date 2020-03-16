@@ -26,8 +26,7 @@ namespace Debt_Book
 
         public Client(string _name, double _initialValue)
         {
-            name = _name;
-
+            Name = _name;
             DebtHistory_.Debts.Add(new DebtHistory.DebtUnit(_initialValue, DateTime.Now));
         }
 
