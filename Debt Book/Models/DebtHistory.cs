@@ -38,6 +38,9 @@ namespace Debt_Book
                 Date = date;
                 Debt = value;
             }
+        
+            public DebtUnit()
+            { }
 
             public DateTime Date 
             {

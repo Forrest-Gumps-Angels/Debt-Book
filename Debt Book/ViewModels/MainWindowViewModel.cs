@@ -144,14 +144,13 @@ namespace Debt_Book.ViewModels
         {
             get
             {
-                System.Console.WriteLine("Test");
                 return _newDebtHistoryWindow ?? (_newDebtHistoryWindow = new DelegateCommand(() =>
                 {
-                    var dlg = new DebtHistoryWindow()
+                    var debtHistoryWindow = new DebtHistoryWindow()
                     {
                         DataContext = this
                     };
-                    dlg.Show();
+                    debtHistoryWindow.Show();
                 }));
 
             }
