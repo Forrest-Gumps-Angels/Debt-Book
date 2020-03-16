@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Text;
@@ -10,25 +11,19 @@ namespace Debt_Book
 {
     public class DebtHistory : BindableBase
     {
-        List<DebtUnit> debts_ = new List<DebtUnit>();
+        ObservableCollection<DebtUnit> debts_ = new ObservableCollection<DebtUnit>();
 
 
-        public List<DebtUnit> Debts
+        public ObservableCollection<DebtUnit> Debts
         {
             get => debts_;
-            set { debts_ = value; notify(); }
+            set => SetProperty(ref debts_, value);
         }
 
-        public class DebtUnit : INotifyPropertyChanged
+        public class DebtUnit : BindableBase
         {
             DateTime date_;
             double debt_;
-
-            public event PropertyChangedEventHandler PropertyChanged;
-            protected void notify([CallerMemberName]string propname = null)
-            {
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propname));
-            }
 
             public DebtUnit(double value, DateTime date)
             {
@@ -42,7 +37,7 @@ namespace Debt_Book
             public DateTime Date 
             {
                 get => date_;
-                set { date_ = value; notify(); }
+                set => SetProperty(ref date_, value);
             }
 
             public double Debt
