@@ -16,8 +16,6 @@
     <Folder Include="Images\" />
     <Folder Include="Data\" />
     <Folder Include="Utilities\" />
-    <Folder Include="ViewModels\" />
-    <Folder Include="Views\" />
   </ItemGroup>
 
 </Project>
