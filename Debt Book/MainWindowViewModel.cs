@@ -8,7 +8,7 @@ using Prism.Commands;
 
 namespace Debt_Book
 {
-    class MainWindowViewModel : BindableBase
+    public class MainWindowViewModel : BindableBase
     {
         ObservableCollection<Client> ClientList = new ObservableCollection<Client>();
         Client _currentClient = null;
@@ -36,13 +36,13 @@ namespace Debt_Book
             set => SetProperty(ref _currentIndex, value);
         }
 
-        ICommand _addDeptor;
+        ICommand _addDebtor;
 
-        public ICommand AddDeptor
+        public ICommand AddDebtor
         {
             get
             {
-                return _addDeptor ?? (_addDeptor = new DelegateCommand()) =>
+                return _addDebtor ?? (_addDebtor = new DelegateCommand(() =>
                 {
                     ClientList.Add(new Client("Name", 0));
                     CurrentIndex = ClientList.Count - 1;

@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Debt_Book
 {
-    class Client : INotifyPropertyChanged
+    public class Client : INotifyPropertyChanged
     {
         string name;
         double initialValue;
