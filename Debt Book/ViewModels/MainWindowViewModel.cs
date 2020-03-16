@@ -20,6 +20,8 @@ namespace Debt_Book.ViewModels
         private int _currentIndex = 0;
         string availableFileTypes = "xml files (*.xml)|*.xml";
         string _filename;
+        DebtHistoryWindow debtHistoryWindow = null;
+
 
         public MainWindowViewModel()
         {
@@ -143,11 +145,18 @@ namespace Debt_Book.ViewModels
             {
                 return _newDebtHistoryWindow ?? (_newDebtHistoryWindow = new DelegateCommand(() =>
                 {
-                    var debtHistoryWindow = new DebtHistoryWindow()
+                    if (debtHistoryWindow == null)
                     {
-                        DataContext = this
-                    };
-                    debtHistoryWindow.Show();
+                        debtHistoryWindow = new DebtHistoryWindow()
+                        {
+                            DataContext = this
+                        };
+                        debtHistoryWindow.Show();
+                    }
+                    else
+                    {
+                        debtHistoryWindow.Show();
+                    }
                 }));
 
             }
@@ -169,7 +178,7 @@ namespace Debt_Book.ViewModels
         private ICommand _closeCommand;
         public ICommand CloseCommand
         {
-            get { return _closeCommand ?? (_closeCommand = new DelegateCommand(() => App.Current.Windows[1].Close())); }
+            get { return _closeCommand ?? (_closeCommand = new DelegateCommand(() => debtHistoryWindow.Hide())); }
         }
     }
 }
