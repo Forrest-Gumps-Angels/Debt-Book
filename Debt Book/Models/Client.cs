@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Text;
@@ -12,7 +13,7 @@ namespace Debt_Book
     {
         string name;
         double accumulatedValue;
-        DebtHistory DebtHistory_ = new DebtHistory();
+        DebtHistoryClass DebtHistory_ = new DebtHistoryClass();
 
         public Client()
         { }
@@ -20,8 +21,30 @@ namespace Debt_Book
         public Client(string _name, double _initialValue)
         {
             Name = _name;
-            DebtHistory_.Debts.Add(new DebtHistory.DebtUnit(_initialValue, DateTime.Now));
+            DebtHistory_.Debts.Add(new DebtHistoryClass.DebtUnit(_initialValue, DateTime.Now));
+            DebtHistory.Debts.CollectionChanged += handlepropchange;
+            foreach(var debt in DebtHistory.Debts)
+            {
+                debt.DebtsChanged += handlepropchange_;
+            }
         }
+
+        private void handlepropchange_(object sender, EventArgs e)
+        {
+            AccumulatedValue = accumulatevalue();
+        }
+
+        private void handlepropchange(object sender, NotifyCollectionChangedEventArgs e)
+        {
+            AccumulatedValue = accumulatevalue();
+            foreach (DebtHistoryClass.DebtUnit debt in e.NewItems)
+            {
+                debt.DebtsChanged += handlepropchange_;
+            }
+        }
+
+
+
 
         public string Name
         {
@@ -29,32 +52,18 @@ namespace Debt_Book
             set { SetProperty(ref name, value); }
         }
 
-        public DebtHistory DebtHistory
+        public DebtHistoryClass DebtHistory
         {
             get => DebtHistory_;
             set 
             { 
                 SetProperty(ref DebtHistory_, value);
-                AccumulatedValue = accumulatevalue();
             }
         }
 
         public double AccumulatedValue
         {
-            get
-            {
-                //foreach (var unit in DebtHistory.Debts)
-                //{
-                //    accumulatedValue += unit.Debt;
-                //}
-
-                for(int i = 0; i < DebtHistory.Debts.Count; i++)
-                {
-                    accumulatedValue += DebtHistory.Debts[i].Debt;
-                }
-
-                return accumulatedValue;
-            }
+            get => accumulatevalue();
             set 
             {
                 SetProperty(ref accumulatedValue, value);

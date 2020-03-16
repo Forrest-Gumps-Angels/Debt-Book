@@ -52,10 +52,10 @@
             </Grid.ColumnDefinitions>
 
             <Label Content="Value" Grid.Row="0" Grid.Column="0"/>
-            <TextBox Text="{Binding CurrentDebtUnit.Debt, Mode=TwoWay}" Grid.Row="0" Grid.Column="1"/>
+            <TextBox Text="{Binding CurrentDebtUnit.Debt, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  Grid.Row="0" Grid.Column="1"/>
 
             <Label Content="Date" Grid.Row="1" Grid.Column="0"/>
-            <DatePicker SelectedDate="{Binding CurrentDebtUnit.Date, Mode=TwoWay}" Grid.Row="1" Grid.Column="1"/>
+            <DatePicker SelectedDate="{Binding CurrentDebtUnit.Date, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Row="1" Grid.Column="1"/>
             <Button Content="Add New" Grid.Row="2" Grid.Column="1" Command="{Binding AddNewDebtUnit}"/>
         </Grid>
     </Grid>

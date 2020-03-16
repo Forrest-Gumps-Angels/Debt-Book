@@ -9,21 +9,27 @@ using Prism.Mvvm;
 
 namespace Debt_Book
 {
-    public class DebtHistory : BindableBase
+    public class DebtHistoryClass : BindableBase
     {
         ObservableCollection<DebtUnit> debts_ = new ObservableCollection<DebtUnit>();
+
+        
 
 
         public ObservableCollection<DebtUnit> Debts
         {
             get => debts_;
-            set => SetProperty(ref debts_, value);
+            set {
+                SetProperty(ref debts_, value);
+            }
         }
 
         public class DebtUnit : BindableBase
         {
             DateTime date_;
             double debt_;
+
+            public event EventHandler DebtsChanged;
 
             public DebtUnit(double value, DateTime date)
             {
@@ -43,7 +49,17 @@ namespace Debt_Book
             public double Debt
             {
                 get => debt_;
-                set => SetProperty(ref debt_, value);
+                set
+                {
+                    SetProperty(ref debt_, value);
+                    notifyDebtChanged();
+                }
+                
+            }
+
+            public virtual void notifyDebtChanged()
+            {
+                DebtsChanged?.Invoke(this,EventArgs.Empty);
             }
         }
     }

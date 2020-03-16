@@ -16,7 +16,7 @@ namespace Debt_Book.ViewModels
     {
         ObservableCollection<Client> ClientList = new ObservableCollection<Client>();
         Client _currentClient = null;
-        DebtHistory.DebtUnit _currentDebtUnit = null;
+        DebtHistoryClass.DebtUnit _currentDebtUnit = null;
         private int _currentIndex = 0;
         string availableFileTypes = "xml files (*.xml)|*.xml";
         string _filename;
@@ -37,7 +37,7 @@ namespace Debt_Book.ViewModels
             set => SetProperty(ref _currentClient, value);
         }
 
-        public DebtHistory.DebtUnit CurrentDebtUnit
+        public DebtHistoryClass.DebtUnit CurrentDebtUnit
         {
             get => _currentDebtUnit;
             set => SetProperty(ref _currentDebtUnit, value);
@@ -168,7 +168,7 @@ namespace Debt_Book.ViewModels
             {
                 return _AddNewDebtUnit ?? (_AddNewDebtUnit = new DelegateCommand(() =>
                 {
-                    CurrentClient.DebtHistory.Debts.Add(new DebtHistory.DebtUnit(0, DateTime.Now));
+                    CurrentClient.DebtHistory.Debts.Add(new DebtHistoryClass.DebtUnit(0, DateTime.Now));
                 }));
 
             }
