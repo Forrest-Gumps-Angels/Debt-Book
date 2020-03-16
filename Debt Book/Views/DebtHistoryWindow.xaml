@@ -7,16 +7,17 @@
         xmlns:local1="clr-namespace:Debt_Book.ViewModels"
         mc:Ignorable="d"
         Background="{DynamicResource WindowBrush}"
-        Title="DebtHistoryWindow" Height="450" Width="800">
+        Title="DebtHistoryWindow" Height="450" Width="800" WindowStyle="ToolWindow">
     <Window.DataContext>
         <local1:MainWindowViewModel/>
     </Window.DataContext>
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
+            <ColumnDefinition Width="9*"/>
+            <ColumnDefinition Width="41*"/>
+            <ColumnDefinition Width="50*"/>
         </Grid.ColumnDefinitions>
-        <Grid Grid.Column="0" Height="434" VerticalAlignment="Top">
+        <Grid Grid.Column="0" Height="434" VerticalAlignment="Center" Grid.ColumnSpan="2">
             <Grid.RowDefinitions>
                 <RowDefinition/>
                 <RowDefinition/>
@@ -41,7 +42,7 @@
             <Button Content="Close" Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="22" Margin="0,184,0,0" Command="{Binding CloseCommand}"/>
 
         </Grid>
-        <Grid Grid.Column="1" VerticalAlignment="Top">
+        <Grid Grid.Column="2" VerticalAlignment="Top">
             <Grid.RowDefinitions>
                 <RowDefinition/>
                 <RowDefinition/>
