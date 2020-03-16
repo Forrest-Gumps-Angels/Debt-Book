@@ -82,7 +82,7 @@ namespace Debt_Book.ViewModels
                     //var vm = new AddClientViewModel(newClient);
                     var dlg = new AddClientView
                     {
-                        //DataContext = vm
+                        //DataContext = ClientList_
                     };
                     if (dlg.ShowDialog() == true)
                     {

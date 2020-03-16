@@ -65,7 +65,7 @@ namespace Debt_Book.ViewModels
         public void SaveBtnCommand_Execute() 
         {
             var newClient = new Client(Name, InitialValue);
-            //ClientList_.Add(newClient);
+            
         }
 
         private bool SaveBtnCommand_CanExecute()
