@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Text;
+using Prism.Commands;
+using Prism.Mvvm;
 
 namespace Debt_Book
 {
-    public class Client : INotifyPropertyChanged
+    public class Client : BindableBase
     {
         string name;
         double initialValue;
@@ -33,19 +35,13 @@ namespace Debt_Book
         public string Name
         {
             get => name;
-            set { name = value; notify(); }
-        }
-
-        public double InitialValue
-        {
-            get => initialValue;
-            set { initialValue = value; notify(); }
+            set { SetProperty(ref name, value); }
         }
 
         public DebtHistory DebtHistory
         {
             get => DebtHistory_;
-            set { DebtHistory_ = value; notify(); }
+            set { SetProperty(ref DebtHistory_, value); }
         }
 
         public double AccumulatedValue
