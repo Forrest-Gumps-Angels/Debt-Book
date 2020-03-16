@@ -22,8 +22,6 @@ namespace Debt_Book.ViewModels
             set { SetProperty(ref currentClient, value); }
         }
 
-        //bool isValid;
-
         public bool IsValid
         {
             get
@@ -31,12 +29,10 @@ namespace Debt_Book.ViewModels
                 bool isValid = true;
                 if (string.IsNullOrWhiteSpace(CurrentClient.Name))
                     isValid = false;
+                if (double.IsNaN(CurrentClient.InitialValue))
+                    isValid = false;
                 return isValid;
             }
-            //set
-            //{
-            //    SetProperty(ref isValid, value);
-            //}
         }
         #endregion
 
