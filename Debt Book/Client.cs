@@ -11,7 +11,7 @@ namespace Debt_Book
         string name;
         double initialValue;
         double accumulatedValue;
-        DebtHistory DebtHistory_;
+        DebtHistory DebtHistory_ = new DebtHistory();
 
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -27,8 +27,8 @@ namespace Debt_Book
         public Client(string _name, double _initialValue)
         {
             name = _name;
-            initialValue = _initialValue;
-            accumulatedValue = _initialValue;
+
+            DebtHistory_.Debts.Add(new DebtHistory.DebtUnit(_initialValue, DateTime.Now));
         }
 
         public string Name
