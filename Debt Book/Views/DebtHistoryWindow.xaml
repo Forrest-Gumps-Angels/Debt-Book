@@ -7,22 +7,23 @@
         xmlns:local1="clr-namespace:Debt_Book.ViewModels"
         mc:Ignorable="d"
         Background="{DynamicResource WindowBrush}"
-        Title="DebtHistoryWindow" Height="450" Width="800">
+        Title="DebtHistoryWindow" Height="250" Width="500">
     <Window.DataContext>
         <local1:MainWindowViewModel/>
     </Window.DataContext>
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
-        <Grid Grid.Column="0" Height="434" VerticalAlignment="Top">
+        <Grid Grid.Column="0" Height="352" VerticalAlignment="Top" RenderTransformOrigin="0.494,0.547">
             <Grid.RowDefinitions>
                 <RowDefinition/>
-                <RowDefinition/>
+                <RowDefinition Height="8.703"/>
+                <RowDefinition Height="190.297"/>
             </Grid.RowDefinitions>
-
-            <ListBox SelectedItem="{Binding CurrentDebtUnit}" ItemsSource="{Binding CurrentClient.DebtHistory.Debts}" Grid.Row="0">
+            <Button Content="Close" Grid.Row="2" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="22" Command="{Binding CloseCommand}" Height="29" Width="56"/>
+            <ListBox SelectedItem="{Binding CurrentDebtUnit}" ItemsSource="{Binding CurrentClient.DebtHistory.Debts}" Grid.Row="0" Margin="0,0,0,1">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <Grid>
@@ -31,25 +32,23 @@
                                 <ColumnDefinition/>
                             </Grid.ColumnDefinitions>
 
-                            <Label Content="{Binding Date}" Grid.Column="0"/>
-                            <Label Content="{Binding Debt}" Grid.Column="1"/>
+                            <TextBlock Text="{Binding Date}" Grid.Column="0" Margin="0,0,10,0"/>
+                            <TextBlock Text="{Binding Debt}" Grid.Column="1"/>
 
                         </Grid>
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
-            <Button Content="Close" Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="22" Margin="0,184,0,0" Command="{Binding CloseCommand}"/>
-
         </Grid>
         <Grid Grid.Column="1" VerticalAlignment="Top">
             <Grid.RowDefinitions>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="1*"/>
             </Grid.ColumnDefinitions>
 
             <Label Content="Value" Grid.Row="0" Grid.Column="0"/>
@@ -57,9 +56,7 @@
 
             <Label Content="Date" Grid.Row="1" Grid.Column="0"/>
             <DatePicker SelectedDate="{Binding CurrentDebtUnit.Date, Mode=TwoWay}" Grid.Row="1" Grid.Column="1"/>
-
             <Button Content="Add New" Grid.Row="2" Grid.Column="1" Command="{Binding AddNewDebtUnit}"/>
-
         </Grid>
     </Grid>
 </Window>

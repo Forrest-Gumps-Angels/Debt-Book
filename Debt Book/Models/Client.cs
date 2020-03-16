@@ -39,9 +39,14 @@ namespace Debt_Book
         {
             get
             {
-                foreach (var unit in DebtHistory.Debts)
+                //foreach (var unit in DebtHistory.Debts)
+                //{
+                //    accumulatedValue += unit.Debt;
+                //}
+
+                for(int i = 0; i < DebtHistory.Debts.Count; i++)
                 {
-                    accumulatedValue += unit.Debt;
+                    accumulatedValue += DebtHistory.Debts[i].Debt;
                 }
 
                 return accumulatedValue;
