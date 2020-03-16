@@ -1,10 +1,8 @@
 ﻿using Prism.Mvvm;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Text;
 using System.Windows.Input;
 using Prism.Commands;
+using Debt_Book.ViewModels;
 
 namespace Debt_Book
 {
@@ -57,6 +55,26 @@ namespace Debt_Book
             }
         }
 
-
+        ICommand _newCommand;
+        public ICommand AddNewClientCommand
+        {
+            get
+            {
+                return _newCommand ?? (_newCommand = new DelegateCommand(() =>
+                {
+                    var newClient = new Client();
+                    var vm = new AddClientViewModel(newClient);
+                    var dlg = new AddClientView
+                    {
+                        DataContext = vm
+                    };
+                    if (dlg.ShowDialog() == true)
+                    {
+                        ClientList.Add(newClient);
+                        CurrentClient = newClient;
+                    }
+                }));
+            }
+        }
     }
 }

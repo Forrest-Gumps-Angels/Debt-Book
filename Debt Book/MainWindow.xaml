@@ -22,7 +22,9 @@
 			<ColumnDefinition Width="364*"/>
 		</Grid.ColumnDefinitions>
 		<ListBox Grid.Column="3" Grid.Row="1" ItemsSource="{Binding ClientList_}"/>
-		<Button Content="Add deptor" Grid.Column="4" HorizontalAlignment="Center" Margin="0,26,0,0" Grid.Row="1" VerticalAlignment="Top" Height="28" Width="108"/>
+		<Button Content="Add deptor" Grid.Column="4" HorizontalAlignment="Center" 
+                Margin="0,26,0,0" Grid.Row="1" VerticalAlignment="Top" Height="28" 
+                Width="108" Command="{Binding Path=AddNewClientCommand}"/>
 
 
 	</Grid>

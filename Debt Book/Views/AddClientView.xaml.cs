@@ -15,9 +15,9 @@ namespace Debt_Book
     /// <summary>
     /// Interaction logic for AddDebtorView.xaml
     /// </summary>
-    public partial class AddDebtorView : Window
+    public partial class AddClientView : Window
     {
-        public AddDebtorView()
+        public AddClientView()
         {
             InitializeComponent();
         }

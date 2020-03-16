@@ -5,9 +5,9 @@ using System.Windows.Input;
 
 namespace Debt_Book.ViewModels
 {
-    public class AddDeptorViewModel : BindableBase
+    public class AddClientViewModel : BindableBase
     {
-        public AddDeptorViewModel(Client client)
+        public AddClientViewModel(Client client)
         {
             CurrentClient = client;
         } 
