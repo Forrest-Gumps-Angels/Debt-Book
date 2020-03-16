@@ -8,7 +8,7 @@
         mc:Ignorable="d"
         Title="DebtHistoryWindow" Height="450" Width="800">
     <Window.DataContext>
-        <local:MainWindowViewModel/>
+        <local1:MainWindowViewModel/>
     </Window.DataContext>
     <Grid>
         <Grid.ColumnDefinitions>
