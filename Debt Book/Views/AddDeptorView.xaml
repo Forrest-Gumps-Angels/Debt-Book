@@ -26,12 +26,13 @@
                FontFamily="Calibri">Add deptor</Label>
         <Label Grid.Row="1" Margin="5,0">Name</Label>
         <Label Grid.Row="2" Margin="5,0"  >Initial value</Label>
-        <TextBox Grid.Column="1" Grid.Row="1" Name="nameBox"/>
-        <TextBox Grid.Column="1" Grid.Row="2" Name="valueBox"/>
+        <TextBox Grid.Column="1" Grid.Row="1" Name="nameBox" Text="{Binding Path=CurrentClient.Name}"/>
+        <TextBox Grid.Column="1" Grid.Row="2" Name="valueBox" Text="{Binding Path=CurrentClient.InitialValue}"/>
         
         <WrapPanel Grid.Column="1" Grid.Row="3" HorizontalAlignment="Center">
             <Button MinWidth="75" Name="btnSave" 
-                    Content="_Save" Margin="5"/>
+                    Content="_Save" Margin="5"
+                    Command="{Binding Path=SaveBtnCommand}" Click="btnSave_Click"/>
             <Button Grid.Column="1" Grid.Row="4"
                     IsCancel="True" MinWidth="75" 
                     Name="btnCancel" Content="_Cancel" Margin="5"/>
