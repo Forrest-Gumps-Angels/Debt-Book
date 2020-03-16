@@ -27,7 +27,7 @@
 				<DataTemplate>
 					<WrapPanel>
                         <TextBlock Text="{Binding Path= Name}" Width="150">
-                            <Hyperlink Command="{Binding AddNewDebtHistoryWindow, RelativeSource={RelativeSource AncestorType=Window}}"/>
+                            <Hyperlink Command="{Binding RelativeSource={RelativeSource AncestorType={x:Type Window}}, Path=D}"/>
                         </TextBlock>
                         <TextBlock Text="{Binding Path=AccumulatedValue}" Width="auto">
                             <Hyperlink Command="{Binding AddNewDebtHistoryWindow}"/>
