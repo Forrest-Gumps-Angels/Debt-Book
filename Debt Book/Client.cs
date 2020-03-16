@@ -9,6 +9,7 @@ namespace Debt_Book
     class Client : INotifyPropertyChanged
     {
 
+
         public event PropertyChangedEventHandler PropertyChanged;
         protected void notify([CallerMemberName]string propname = null)
         {
