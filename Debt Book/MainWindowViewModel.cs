@@ -79,5 +79,27 @@ namespace Debt_Book
                 }));
             }
         }
+
+        ICommand _newDebtHistoryWindow;
+        public ICommand AddNewDebtHistoryWindow
+        {
+            get
+            {
+                return _newDebtHistoryWindow ?? (_newDebtHistoryWindow = new DelegateCommand(() =>
+                {
+                    var newClient = new Client();
+                    var vm = new AddClientViewModel(newClient);
+                    var dlg = new DebtHistoryWindow
+                    {
+                        DataContext = vm
+                    };
+                    if (dlg.ShowDialog() == true)
+                    {
+                        ClientList.Add(newClient);
+                        CurrentClient = newClient;
+                    }
+                }));
+            }
+        }
     }
 }

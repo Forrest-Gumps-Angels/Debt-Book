@@ -26,8 +26,9 @@
 			<ListBox.ItemTemplate>
 				<DataTemplate>
 					<WrapPanel>
-						<TextBlock Text="{Binding Path= Name}" Width="150" />
-						<TextBlock Text="{Binding Path=AccumulatedValue}" Width="auto"/>
+                        <TextBlock Text="{Binding Path= Name}" Width="150">
+                        </TextBlock>
+                        <TextBlock Text="{Binding Path=AccumulatedValue}" Width="auto"/>
 					</WrapPanel>
 				</DataTemplate>
 			</ListBox.ItemTemplate>
