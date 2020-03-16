@@ -85,6 +85,7 @@ namespace Debt_Book.ViewModels
                     };
                     dlg.ShowDialog();
                 }));
+
             }
         }
 
@@ -101,10 +102,10 @@ namespace Debt_Book.ViewModels
         public void executeSaveAs()
         {
             XmlSerializer XML_serial = new XmlSerializer(typeof(ObservableCollection<Client>));
-            SaveFileDialog saveFileDialog = new SaveFileDialog();
-            saveFileDialog.Filter = availableFileTypes;
-            saveFileDialog.ShowDialog();
-            FileName = saveFileDialog.FileName;
+            SaveFileDialog saveFileDialog1 = new SaveFileDialog();
+            saveFileDialog1.Filter = availableFileTypes;
+            saveFileDialog1.ShowDialog();
+            FileName = saveFileDialog1.FileName;
 
             TextWriter writer = new StreamWriter(FileName);
 
@@ -129,9 +130,10 @@ namespace Debt_Book.ViewModels
         public void executeOpen()
         {
             XmlSerializer XML_serial = new XmlSerializer(typeof(ObservableCollection<Client>));
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Filter = availableFileTypes;
-            FileName = openFileDialog.FileName;
+
+            OpenFileDialog openFileDialog1 = new OpenFileDialog();
+            openFileDialog1.Filter = availableFileTypes;
+            FileName = openFileDialog1.FileName;
             FileStream fs = new FileStream(FileName, FileMode.Open);
             ClientList_ = (ObservableCollection<Client>)XML_serial.Deserialize(fs);
             fs.Close();
