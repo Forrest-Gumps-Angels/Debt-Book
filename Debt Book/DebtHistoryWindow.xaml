@@ -20,7 +20,7 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
 
-            <ListBox ItemsSource="{Binding CurrentClient.DebtHistory.Debts}" Grid.Row="0">
+            <ListBox SelectedItem="{Binding CurrentDebtUnit}" ItemsSource="{Binding CurrentClient.DebtHistory.Debts}" Grid.Row="0">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <Grid>
