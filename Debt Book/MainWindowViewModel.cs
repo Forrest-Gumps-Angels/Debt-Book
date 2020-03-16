@@ -99,6 +99,7 @@ namespace Debt_Book
                         CurrentClient = newClient;
                     }
                 }));
+
             }
         }
     }
