@@ -32,10 +32,11 @@
 				</DataTemplate>
 			</ListBox.ItemTemplate>
 		</ListBox>
-        <Button Content="Add deptor" Grid.Column="4" HorizontalAlignment="Center" 
+		<Button Content="Add deptor" Grid.Column="4" HorizontalAlignment="Center" 
                 Margin="0,26,0,0" Grid.Row="1" VerticalAlignment="Top" Height="28" 
                 Width="108" Command="{Binding Path=AddNewClientCommand}"/>
+		<Label Content="Debtors" Grid.Column="3" HorizontalAlignment="Left" Margin="0,10,0,0" FontSize="16" FontWeight="Bold"/>
 
 
-    </Grid>
+	</Grid>
 </Window>
