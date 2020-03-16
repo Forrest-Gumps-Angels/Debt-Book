@@ -11,17 +11,8 @@ namespace Debt_Book
     public class Client : BindableBase
     {
         string name;
-        double initialValue;
         double accumulatedValue;
         DebtHistory DebtHistory_ = new DebtHistory();
-
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        protected void notify([CallerMemberName]string propname = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propname));
-        }
 
         public Client()
         { }

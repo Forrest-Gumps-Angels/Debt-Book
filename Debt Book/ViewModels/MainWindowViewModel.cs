@@ -169,7 +169,7 @@ namespace Debt_Book.ViewModels
         private ICommand _closeCommand;
         public ICommand CloseCommand
         {
-            get { return _closeCommand ?? (_closeCommand = new DelegateCommand(() => App.Current.MainWindow.Close())); }
+            get { return _closeCommand ?? (_closeCommand = new DelegateCommand(() => App.Current.Windows[1].Close())); }
         }
     }
 }
