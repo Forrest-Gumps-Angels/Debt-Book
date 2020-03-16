@@ -20,7 +20,7 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
 
-            <ListBox ItemsSource="{Binding CurrentClient.}" Grid.Row="0">
+            <ListBox ItemsSource="{Binding CurrentClient.DebtHistory.Debts}" Grid.Row="0">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <Grid>
@@ -28,8 +28,9 @@
                                 <ColumnDefinition/>
                                 <ColumnDefinition/>
                             </Grid.ColumnDefinitions>
-
-                            <Label Content="{Binding }"/>
+                            
+                            <Label Content="{Binding Date}" Grid.Column="0"/>
+                            <Label Content="{Binding Debt}" Grid.Column="1"/>
 
                         </Grid>
                     </DataTemplate>
