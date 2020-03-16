@@ -38,7 +38,7 @@
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
-            <Button Content="Close" Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="22" Margin="0,184,0,0"/>
+            <Button Content="Close" Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="22" Margin="0,184,0,0" Command="{Binding CloseCommand}"/>
 
         </Grid>
         <Grid Grid.Column="1" VerticalAlignment="Top">
