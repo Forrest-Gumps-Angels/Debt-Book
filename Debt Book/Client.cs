@@ -10,7 +10,7 @@ namespace Debt_Book
     {
         string name;
         double initialValue;
-        double accumulatedDebt;
+        double accumulatedValue;
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -26,6 +26,7 @@ namespace Debt_Book
         {
             name = _name;
             initialValue = _initialValue;
+            accumulatedValue = _initialValue;
         }
 
         public string Name
@@ -38,6 +39,12 @@ namespace Debt_Book
         {
             get => initialValue;
             set { initialValue = value; notify("InitialValue"); }
+        }
+
+        public double AccumulatedValue
+        {
+            get => accumulatedValue;
+            set { accumulatedValue += initialValue; notify(); }
         }
     }
 }

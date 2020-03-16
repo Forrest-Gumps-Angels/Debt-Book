@@ -16,6 +16,9 @@ namespace Debt_Book
 
         public MainWindowViewModel()
         {
+            ClientList.Add(new Client("Morten", -1000));
+            ClientList.Add(new Client("Viktor", -200));
+            ClientList.Add(new Client("Rasmus", 100000));
         }
 
         public Client CurrentClient
