@@ -6,6 +6,9 @@
         xmlns:local="clr-namespace:Debt_Book"
         mc:Ignorable="d"
         Title="DebtHistoryWindow" Height="450" Width="800">
+    <Window.DataContext>
+        <local:MainWindowViewModel/>
+    </Window.DataContext>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -17,8 +20,23 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
 
-            <ListBox Grid.Row="0"/>
-            <Button Content="Close" Grid.Row="1" VerticalAlignment="Bottom" Height="25" HorizontalAlignment="Center"/>
+            <ListBox ItemsSource="{Binding CurrentClient.DebtHistory.Debts}" Grid.Row="0">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            
+                            <Label Content="{Binding Date}" Grid.Column="0"/>
+                            <Label Content="{Binding Debt}" Grid.Column="1"/>
+
+                        </Grid>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+            <Button Content="Close" Grid.Row="1" VerticalAlignment="Bottom" HorizontalAlignment="Center" FontSize="22"/>
 
         </Grid>
         <Grid Grid.Column="1" VerticalAlignment="Top">

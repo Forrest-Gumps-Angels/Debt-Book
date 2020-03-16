@@ -1,0 +1,40 @@
+﻿<Window x:Class="Debt_Book.AddDebtorView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Debt_Book"
+        mc:Ignorable="d"
+        Title="AddDebtorView" Height="150" Width="300"
+        WindowStartupLocation="CenterOwner"
+        FocusManager.FocusedElement="{Binding ElementName=nameBox}"
+        ShowInTaskbar="False">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto" />
+            <ColumnDefinition Width="1*" />
+        </Grid.ColumnDefinitions>
+        
+        <Label Margin="5,0" Grid.ColumnSpan="2" 
+               HorizontalAlignment="Center" FontSize="30"
+               FontFamily="Calibri">Add deptor</Label>
+        <Label Grid.Row="1" Margin="5,0">Name</Label>
+        <Label Grid.Row="2" Margin="5,0"  >Initial value</Label>
+        <TextBox Grid.Column="1" Grid.Row="1" Name="nameBox"/>
+        <TextBox Grid.Column="1" Grid.Row="2" Name="valueBox"/>
+        
+        <WrapPanel Grid.Column="1" Grid.Row="3" HorizontalAlignment="Center">
+            <Button MinWidth="75" Name="btnSave" 
+                    Content="_Save" Margin="5"/>
+            <Button Grid.Column="1" Grid.Row="4"
+                    IsCancel="True" MinWidth="75" 
+                    Name="btnCancel" Content="_Cancel" Margin="5"/>
+        </WrapPanel>
+    </Grid>
+</Window>
