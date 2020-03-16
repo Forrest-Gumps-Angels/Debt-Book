@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Debt_Book
 {
-    class DebtHistory : INotifyPropertyChanged
+    public class DebtHistory : INotifyPropertyChanged
     {
 
         public event PropertyChangedEventHandler PropertyChanged;
