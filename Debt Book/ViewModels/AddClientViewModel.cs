@@ -1,6 +1,6 @@
 ﻿using Prism.Commands;
 using Prism.Mvvm;
-using System.Collections.ObjectModel;
+using System;
 using System.Windows.Input;
 
 namespace Debt_Book.ViewModels
@@ -8,18 +8,30 @@ namespace Debt_Book.ViewModels
     public class AddClientViewModel : BindableBase
     {
         public AddClientViewModel(Client client)
-        {
-            CurrentClient = client;
-        } 
+        { }
 
         #region Properties
 
-        Client currentClient;
+        string name;
 
-        public Client CurrentClient
+        public string Name
         {
-            get { return currentClient; }
-            set { SetProperty(ref currentClient, value); }
+            get { return name; }
+            set
+            {
+                SetProperty(ref name, value);
+            }
+        }
+
+        double initialValue;
+
+        public double InitialValue
+        {
+            get { return initialValue; }
+            set
+            {
+                SetProperty(ref initialValue, value);
+            }
         }
 
         public bool IsValid
@@ -27,9 +39,9 @@ namespace Debt_Book.ViewModels
             get
             {
                 bool isValid = true;
-                if (string.IsNullOrWhiteSpace(CurrentClient.Name))
+                if (string.IsNullOrWhiteSpace(Name))
                     isValid = false;
-                if (double.IsNaN(CurrentClient.InitialValue))
+                if (double.IsNaN(InitialValue))
                     isValid = false;
                 return isValid;
             }
@@ -45,12 +57,16 @@ namespace Debt_Book.ViewModels
             {
                 return _saveBtnCommand ?? (_saveBtnCommand = new DelegateCommand(
                     SaveBtnCommand_Execute, SaveBtnCommand_CanExecute)
-                  .ObservesProperty(() => CurrentClient.Name)
-                  .ObservesProperty(() => CurrentClient.InitialValue));
+                  .ObservesProperty(() => Name)
+                  .ObservesProperty(() => InitialValue));
             }
         }
 
-        private void SaveBtnCommand_Execute() {}
+        public void SaveBtnCommand_Execute() 
+        {
+            var newClient = new Client(Name, InitialValue);
+            
+        }
 
         private bool SaveBtnCommand_CanExecute()
         {
