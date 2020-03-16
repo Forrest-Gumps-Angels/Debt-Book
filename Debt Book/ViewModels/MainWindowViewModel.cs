@@ -90,6 +90,7 @@ namespace Debt_Book.ViewModels
                         //CurrentClient = newClient;
                     }
                 }));
+
             }
         }
 
