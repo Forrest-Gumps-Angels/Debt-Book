@@ -78,17 +78,12 @@ namespace Debt_Book.ViewModels
             {
                 return _newCommand ?? (_newCommand = new DelegateCommand(() =>
                 {
-                    //var newClient = new Client();
-                    //var vm = new AddClientViewModel(newClient);
+
                     var dlg = new AddClientView
                     {
-                        //DataContext = ClientList_
+                        DataContext = this
                     };
-                    if (dlg.ShowDialog() == true)
-                    {
-                        //ClientList.Add(newClient);
-                        //CurrentClient = newClient;
-                    }
+                    dlg.ShowDialog();
                 }));
             }
         }

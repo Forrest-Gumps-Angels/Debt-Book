@@ -4,11 +4,15 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Debt_Book"
+        xmlns:local1="clr-namespace:Debt_Book.ViewModels"
         mc:Ignorable="d"
         Title="Add new client" Height="200" Width="350"
         WindowStartupLocation="CenterOwner"
         FocusManager.FocusedElement="{Binding ElementName=nameBox}"
         ShowInTaskbar="False">
+    <Window.DataContext>
+        <local1:MainWindowViewModel/>
+    </Window.DataContext>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto" />
