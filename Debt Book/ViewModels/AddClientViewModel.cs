@@ -2,18 +2,20 @@
 using Prism.Mvvm;
 using System;
 using System.Windows.Input;
+using Debt_Book.ViewModels;
+using System.Windows;
+using System.Linq;
 
 namespace Debt_Book.ViewModels
 {
     public class AddClientViewModel : BindableBase
     {
-        public AddClientViewModel(Client client)
+        public AddClientViewModel()
         { }
 
         #region Properties
 
         string name;
-
         public string Name
         {
             get { return name; }
@@ -24,7 +26,6 @@ namespace Debt_Book.ViewModels
         }
 
         double initialValue;
-
         public double InitialValue
         {
             get { return initialValue; }
@@ -64,8 +65,11 @@ namespace Debt_Book.ViewModels
 
         public void SaveBtnCommand_Execute() 
         {
-            var newClient = new Client(Name, InitialValue);
-            
+            Client newClient;
+            newClient = new Client(Name, InitialValue);
+            MainWindow mw = Application.Current.Windows.OfType<MainWindow>().FirstOrDefault();
+            MainWindowViewModel mvvm = (MainWindowViewModel)mw.DataContext;
+            mvvm.ClientList_.Add(newClient);
         }
 
         private bool SaveBtnCommand_CanExecute()

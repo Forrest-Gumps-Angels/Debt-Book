@@ -78,11 +78,7 @@ namespace Debt_Book.ViewModels
             {
                 return _newCommand ?? (_newCommand = new DelegateCommand(() =>
                 {
-
-                    var dlg = new AddClientView
-                    {
-                        DataContext = this
-                    };
+                    var dlg = new AddClientView { };
                     dlg.ShowDialog();
                 }));
 

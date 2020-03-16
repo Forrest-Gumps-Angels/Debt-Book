@@ -11,7 +11,7 @@
         FocusManager.FocusedElement="{Binding ElementName=nameBox}"
         ShowInTaskbar="False">
     <Window.DataContext>
-        <local1:MainWindowViewModel/>
+        <local1:AddClientViewModel/>
     </Window.DataContext>
     <Grid>
         <Grid.RowDefinitions>
@@ -36,7 +36,7 @@
         <WrapPanel Grid.Column="1" Grid.Row="3" HorizontalAlignment="Center">
             <Button MinWidth="75" Name="btnSave" 
                     Content="_Save" Margin="5"
-                    Command="{Binding Path=SaveBtnCommand}" Click="btnSave_Click"/>
+                    Command="{Binding Path=SaveBtnCommand}" Click="btnSave_Click" />
             <Button Grid.Column="1" Grid.Row="4"
                     IsCancel="True" MinWidth="75" 
                     Name="btnCancel" Content="_Cancel" Margin="5"/>
