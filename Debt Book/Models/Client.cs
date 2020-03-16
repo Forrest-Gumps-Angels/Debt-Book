@@ -32,7 +32,11 @@ namespace Debt_Book
         public DebtHistory DebtHistory
         {
             get => DebtHistory_;
-            set { SetProperty(ref DebtHistory_, value); }
+            set 
+            { 
+                SetProperty(ref DebtHistory_, value);
+                AccumulatedValue = accumulatevalue();
+            }
         }
 
         public double AccumulatedValue
@@ -51,7 +55,22 @@ namespace Debt_Book
 
                 return accumulatedValue;
             }
-            set {  }
+            set 
+            {
+                SetProperty(ref accumulatedValue, value);
+            }
+        }
+        
+        public double accumulatevalue()
+        {
+            double x = 0;
+
+            for (int i = 0; i < DebtHistory.Debts.Count; i++)
+            {
+                x += DebtHistory.Debts[i].Debt;
+            }
+
+            return x;
         }
     }
 }
