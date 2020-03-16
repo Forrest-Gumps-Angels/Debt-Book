@@ -23,6 +23,7 @@ namespace Debt_Book
         public MainWindow()
         {
             InitializeComponent();
+
         }
     }
 }

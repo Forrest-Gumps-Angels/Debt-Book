@@ -6,10 +6,24 @@
         xmlns:local="clr-namespace:Debt_Book"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Window.DataContext>
-        <local:MainWindowViewModel/>
-    </Window.DataContext>
-    <Grid>
+	<Window.DataContext>
+		<local:MainWindowViewModel/>
+	</Window.DataContext>
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="19*"/>
+			<RowDefinition Height="198*"/>
+		</Grid.RowDefinitions>
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="0*"/>
+			<ColumnDefinition Width="0*"/>
+			<ColumnDefinition Width="67*"/>
+			<ColumnDefinition Width="369*"/>
+			<ColumnDefinition Width="364*"/>
+		</Grid.ColumnDefinitions>
+		<ListBox Grid.Column="3" Grid.Row="1" ItemsSource="{Binding ClientList_}"/>
+		<Button Content="Add deptor" Grid.Column="4" HorizontalAlignment="Center" Margin="0,26,0,0" Grid.Row="1" VerticalAlignment="Top" Height="28" Width="108"/>
 
-    </Grid>
+
+	</Grid>
 </Window>
