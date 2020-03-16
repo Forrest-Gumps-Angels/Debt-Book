@@ -48,10 +48,12 @@
 		<Label Content="Debtors" Grid.Column="0" HorizontalAlignment="Left" FontSize="16" FontWeight="Bold" Margin="10" Grid.Row="1"/>
 
 		<Menu Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2">
-			<MenuItem Header="Open" Command="{Binding Path = Open}"/>
+			<MenuItem Header="_File">
+				<MenuItem Header="Open" Command="{Binding Path = Open}"/>
 			<Separator/>
 			<MenuItem Header="Save As" Command="{Binding Path = SaveAs}"/>
-		</Menu>
+			</MenuItem>
+			</Menu>
 
 
 
