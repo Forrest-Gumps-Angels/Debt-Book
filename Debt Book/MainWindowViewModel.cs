@@ -45,11 +45,11 @@ namespace Debt_Book
         {
             get
             {
-                return _addDebtor ?? (_addDebtor = new DelegateCommand(() =>
+                return _addDebtor ??= new DelegateCommand(() =>
                 {
                     ClientList.Add(new Client("Name", 0));
                     CurrentIndex = ClientList.Count - 1;
-                }));
+                });
             }
         }
 

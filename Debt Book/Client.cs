@@ -10,7 +10,7 @@ namespace Debt_Book
     {
         string name;
         double initialValue;
-        double accumulatedDebt;
+        double accumulatedValue;
         DebtHistory DebtHistory_;
 
 
@@ -28,6 +28,7 @@ namespace Debt_Book
         {
             name = _name;
             initialValue = _initialValue;
+            accumulatedValue = _initialValue;
         }
 
         public string Name
@@ -46,6 +47,20 @@ namespace Debt_Book
         {
             get => DebtHistory_;
             set { DebtHistory_ = value; notify(); }
+        }
+
+        public double AccumulatedValue
+        {
+            get
+            {
+                foreach (var unit in DebtHistory.Debts)
+                {
+                    accumulatedValue += unit.Debt;
+                }
+
+                return accumulatedValue;
+            }
+            set {  }
         }
     }
 }
