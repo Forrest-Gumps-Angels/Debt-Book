@@ -4,7 +4,7 @@ using System.Windows.Input;
 using Prism.Commands;
 using Debt_Book.ViewModels;
 
-namespace Debt_Book
+namespace Debt_Book.ViewModels
 {
     public class MainWindowViewModel : BindableBase
     {
@@ -65,16 +65,16 @@ namespace Debt_Book
             {
                 return _newCommand ?? (_newCommand = new DelegateCommand(() =>
                 {
-                    var newClient = new Client();
-                    var vm = new AddClientViewModel(newClient);
+                    //var newClient = new Client();
+                    //var vm = new AddClientViewModel(newClient);
                     var dlg = new AddClientView
                     {
-                        DataContext = vm
+                        //DataContext = vm
                     };
                     if (dlg.ShowDialog() == true)
                     {
-                        ClientList.Add(newClient);
-                        CurrentClient = newClient;
+                        //ClientList.Add(newClient);
+                        //CurrentClient = newClient;
                     }
                 }));
             }
